@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: 404Setup <153366651+404Setup@users.noreply.github.com>
+Date: Sat, 26 Oct 2024 13:41:31 +0800
+Subject: [PATCH] Fix build
+
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index c2f2ba1df68e9823c56287f1bea23fb6d6a781a2..754c40ca692bb68a6b47310ccca415635918c460 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -13,7 +13,7 @@ configurations.named(log4jPlugins.compileClasspathConfigurationName) {
+ val alsoShade: Configuration by configurations.creating
+ 
+ dependencies {
+-    implementation(project(":folia-api")) // Folia
++    implementation(project(":sewlia-api")) // Folia // Sewlia
+     // Paper start
+     implementation("org.jline:jline-terminal-jansi:3.21.0")
+     implementation("net.minecrell:terminalconsoleappender:1.3.0")

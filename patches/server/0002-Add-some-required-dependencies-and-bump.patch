@@ -1,0 +1,44 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: 404Setup <153366651+404Setup@users.noreply.github.com>
+Date: Sat, 26 Oct 2024 13:52:06 +0800
+Subject: [PATCH] Add some required dependencies and bump
+
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 754c40ca692bb68a6b47310ccca415635918c460..38ee24c2135a5fb1426f0d2ba0c315450238b6ca 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -24,13 +24,13 @@ dependencies {
+           all its classes to check if they are plugins.
+           Scanning takes about 1-2 seconds so adding this speeds up the server start.
+      */
+-    implementation("org.apache.logging.log4j:log4j-core:2.19.0") // Paper - implementation
+-    log4jPlugins.annotationProcessorConfigurationName("org.apache.logging.log4j:log4j-core:2.19.0") // Paper - Needed to generate meta for our Log4j plugins
++    implementation("org.apache.logging.log4j:log4j-core:2.23.1") // Paper - implementation
++    log4jPlugins.annotationProcessorConfigurationName("org.apache.logging.log4j:log4j-core:2.23.1") // Paper - Needed to generate meta for our Log4j plugins
+     runtimeOnly(log4jPlugins.output)
+     alsoShade(log4jPlugins.output)
+     implementation("io.netty:netty-codec-haproxy:4.1.97.Final") // Paper - Add support for proxy protocol
+     // Paper end
+-    implementation("org.apache.logging.log4j:log4j-iostreams:2.22.1") // Paper - remove exclusion
++    implementation("org.apache.logging.log4j:log4j-iostreams:2.23.1") // Paper - remove exclusion
+     implementation("org.ow2.asm:asm-commons:9.7.1")
+     implementation("org.spongepowered:configurate-yaml:4.2.0-SNAPSHOT") // Paper - config files
+     implementation("commons-lang:commons-lang:2.6")
+@@ -66,6 +66,16 @@ dependencies {
+     implementation("me.lucko:spark-api:0.1-20240720.200737-2")
+     implementation("me.lucko:spark-paper:1.10.105-SNAPSHOT")
+     // Paper end - spark
++
++    // Sewlia start
++    implementation("org.yaml:snakeyaml:2.3")
++    implementation ("me.carleslc.Simple-YAML:Simple-Yaml:1.8.4") {
++        exclude(group="org.yaml", module="snakeyaml")
++    }
++    implementation("com.github.luben:zstd-jni:1.5.6-6")
++    implementation("org.lz4:lz4-java:1.8.0")
++    implementation("one.util:streamex:0.8.3")
++    // Sewlia end
+ }
+ 
+ paperweight {
